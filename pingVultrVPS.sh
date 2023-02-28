@@ -3,8 +3,19 @@
 # This script will ping a list of vultr IPs and output the results to a file
 
 outputFile="pingResults.txt"
+
+echo "choose"
+echo "1) IranCell"
+echo "2) HamrahAval"
+echo "3) Raitel"
+echo "4) Mokhaberat"
+echo "6) Shatel, mobinet..."
+
+read -p "Enter your choice: " connectionType
+
 echo "wait..."
 echo "============================================================" >> $outputFile
+echo "$connectionType" >> $outputFile
 echo "Starting ping test" >> $outputFile
 echo "============================================================" >> $outputFile
 
@@ -14,6 +25,7 @@ echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" >> $outputFi
 
 echo "Seoul, South Korea" >> $outputFile
 ping -c 10 -w 15 141.164.34.61 >> $outputFile
+
 echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" >> $outputFile
 
 echo "Singapore" >> $outputFile
@@ -59,3 +71,8 @@ echo "============================================================" >> $outputFi
 echo "end of test" >> $outputFile
 echo "============================================================" >> $outputFile
 echo "done"
+
+read -p "Link [y/n] " link
+if [ $link = "y" ]; then
+    curl -F"file=@$outputFile" https://0x0.st
+fi
