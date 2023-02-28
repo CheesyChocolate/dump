@@ -72,7 +72,8 @@ echo "end of test" >> $outputFile
 echo "============================================================" >> $outputFile
 echo "done"
 
-read -p "Link [y/n] " link
-if [ $link = "y" ]; then
+read -p "Link? [y/n] " link
+if [ "$link" = "y" ]; then
     curl -F"file=@$outputFile" https://0x0.st
 fi
+exit 0
