@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # This script will ping a list of vultr IPs and output the results to a file
 
